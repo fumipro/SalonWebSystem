@@ -1,4 +1,4 @@
-package jp.co.salonwebsystem.salonwebsystem;
+package jp.co.salonwebsystem;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -95,11 +95,11 @@ public class SalonWebSystemController {
         return "contact_finish";
     }
 
-	// 管理者ログイン画面
-	@GetMapping("/admin/login")
-	public String adminLogin() {
-		return "login";
-	}
+	// // 管理者ログイン画面
+	// @GetMapping("/admin/login")
+	// public String adminLogin() {
+	// 	return "login";
+	// }
 
 	// 管理画面　トップ画面
 	@GetMapping("/admin")

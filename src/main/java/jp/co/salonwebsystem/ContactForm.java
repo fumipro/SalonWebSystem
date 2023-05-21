@@ -1,4 +1,4 @@
-package jp.co.salonwebsystem.salonwebsystem;
+package jp.co.salonwebsystem;
 
 import org.springframework.data.annotation.Id;
 
