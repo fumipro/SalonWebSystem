@@ -1,11 +1,16 @@
 package jp.co.salonwebsystem.salonwebsystem;
+import org.springframework.data.annotation.Id;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import lombok.Data;
 
 @Data
 public class ReservationForm {
     /* 予約画面　フォームクラス */
 	// ID
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	// 年

@@ -12,7 +12,7 @@
 
 <body>
 <div id="wrapper">
-<!-- ■編集部分ここから▼ -->
+
 
 <!-- ■header部分 -->
 <header>
@@ -51,8 +51,14 @@
               <h3>Desired date and time</h3>
               <li class="deco">
                 <span th:text="*{yyear}"></span>/<span th:text="*{mmonth}">			</span>/<span th:text="*{dday}"></span>
+                <input th:field="*{yyear}" value="*{yyear}" type="hidden" id="yyear">
+                <input th:field="*{mmonth}" value="*{mmonth}" type="hidden" id="mmonth">
+                <input th:field="*{dday}" value="*{dday}" type="hidden" id="dday">
                 <span>&nbsp;&nbsp;&nbsp;</span>
                 <span th:text="*{hhour}"></span>:<span th:text="*{mminutes}"></span>
+                <input th:field="*{hhour}" value="*{hhour}" type="hidden" id="hhour">
+                <input th:field="*{mminutes}" value="*{mminutes}" type="hidden" id="mminutes">
+
               </li>
             </div><br>
 
@@ -61,6 +67,7 @@
               <li>
                 <label for="name">Name:</label><br>
                 <span th:text="*{name}"></span>
+                <input th:field="*{name}" value="*{name}" type="hidden" id="name">
               </li>
 
               <li>
@@ -69,18 +76,21 @@
                   <span th:case="1">Female</span>
                   <span th:case="2">Male</span>
                   <span th:case="3">Unanswered</span>
+                  <input th:field="*{gender}" value="*{gender}" type="hidden" id="gender">
                 </th:block>              
               </li>
 
               <li>
                 <label for="tel">Tel:</label><br>
                 <span th:text="*{tel}"></span>
+                <input th:field="*{tel}" value="*{tel}" type="hidden" id="tel">
+
               </li>
 
             <li class="reserv_mse">
               <label for="reserv_msg" class="form_mse_top">Message:</label><br>
-              <textarea th:text="*{message}" id="reserv_msg" rows="10" readonly>ここにメッセージが表示されます
-              </textarea>
+              <textarea th:field="*{message}" id="msg" rows="10" value="*{message}" type="hidden" readonly></textarea>
+
             </li>
           </div>
 
@@ -116,11 +126,11 @@
   </div>
 
   <p class="copy">
-  c 2021 Winschool. All Rights Reserved.
+  c 2023 Fumiki. All Rights Reserved.
   </p>
 
 </footer>
-<!-- ■編集部分ここまで▲ -->
+
 </div><!-- wrapper -->
 </body>
 </html>

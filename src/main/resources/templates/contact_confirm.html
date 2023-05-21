@@ -12,7 +12,7 @@
 
 <body>
 <div id="wrapper">
-<!-- ■編集部分ここから▼ -->
+
 
 <!-- ■header部分 -->
 <header>
@@ -50,6 +50,7 @@
               <div class="form_name">
                 <label for="name">Name:</label>
                 <span th:text="*{name}"></span>
+                <input th:field="*{name}" value="*{name}" type="hidden" id="name">
               </div>
             </li>
 
@@ -57,6 +58,8 @@
               <div class="form_mail">
                 <label for="mail">E-mail:</label>
                 <span th:text="*{email}"></span>
+                <input th:field="*{email}" value="*{email}" type="hidden" id="email">
+
               </div>
             </li>
 
@@ -64,7 +67,8 @@
 
             <li class="form_mse">
               <label for="msg" class="form_mse_top">Message:</label><br>
-              <textarea th:text="*{message}" id="msg" rows="10" readonly>ここにメッセージが表示されます</textarea>
+              <textarea th:field="*{message}" id="msg" rows="10" value="*{message}" type="hidden" readonly></textarea>
+
             </li>
           </div>
 
@@ -101,11 +105,11 @@
   </div>
 
   <p class="copy">
-  © 2021 Winschool. All Rights Reserved.
+  © 2023 Fumiki. All Rights Reserved.
   </p>
 
 </footer>
-<!-- ■編集部分ここまで▲ -->
+
 </div><!-- wrapper -->
 </body>
 </html>

@@ -9,6 +9,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+
+
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,7 +26,10 @@ public class SalonWebSystemController {
 
 	// JDBC
 	@Autowired
-	private JdbcTemplate jdbcTemplate;	
+	private JdbcTemplate jdbcTemplate;
+	@Autowired
+	private NamedParameterJdbcTemplate npJdbcTemplate;
+
 
     // トップ画面
 	@GetMapping("/")
@@ -54,10 +63,14 @@ public class SalonWebSystemController {
 	}
 
 	// 予約完了画面
-	@GetMapping("/reservation_finish")
-	public String reservationFinish() {
-		return "reservation_finish";
-	}
+	@PostMapping("/reservation_finish")
+    public String create(@ModelAttribute ReservationForm reservation) {
+
+        String sql = "INSERT INTO reservation(yyear, mmonth, dday, hhour, mminutes, name, gender, tel, message) VALUES(:yyear, :mmonth, :dday, :hhour, :mminutes, :name, :gender, :tel, :message)";
+		SqlParameterSource paramSource = new BeanPropertySqlParameterSource(reservation);
+        npJdbcTemplate.update(sql, paramSource);
+        return "reservation_finish";
+    }
 
 	// お問い合わせ画面
 	@GetMapping("/contact")
@@ -71,11 +84,16 @@ public class SalonWebSystemController {
 		return "contact_confirm";
 	}
 
-	// お問い合わせ完了画面
-	@GetMapping("/contact_finish")
-	public String contact_finish(){
-		return "contact_finish";
-	}
+	//	お問い合わせ完了画面
+	@PostMapping("/contact_finish")
+    public String create(@ModelAttribute ContactForm contact) {
+
+        String sql = "INSERT INTO contact(name, email, message) VALUES(:name, :email, :message)";
+        
+		SqlParameterSource paramSource = new BeanPropertySqlParameterSource(contact);
+        npJdbcTemplate.update(sql, paramSource);
+        return "contact_finish";
+    }
 
 	// 管理者ログイン画面
 	@GetMapping("/admin/login")
