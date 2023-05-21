@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="東京西新宿のヘアーサロン salon de lumière-irisée 公式Webサイト">
+<meta name="keywords" content="salon de lumière-irisée,ルミーエルイルゼ,虹色の輝き,東京,新宿,西新宿,美容室,美容室,理髪,髪型,ヘアーカット,カラー,ネイル,">
+<meta http-equiv="content-style-type" content="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;600&display=swap">
+<title>RESERVATION</title>
+</head>
+
+<body>
+<div id="wrapper">
+<!-- ■編集部分ここから▼ -->
+
+<!-- ■header部分 -->
+<header>
+  <div id="head_logo">
+    <h1>
+      <img src="img/logo_sdli_g90.jpg" alt="lumière-iriséeロゴ">
+    </h1>
+    <p class="head_ttl">La beauté plaît aux yeux, la douceur charme l'âme.</p>
+  </div>
+</header>
+
+<!-- ■メインコンテンツ部分 -->
+<div id="main_contents">
+
+  <!-- ■left_box部分 -->
+  <div id="left_box">
+    <ul>
+      <li><a href="/">HOME</a></li>
+  	  <li><a href="concept">CONCEPT</a></li>
+  	  <li><a href="access">ACCESS</a></li>
+  	  <li><a href="reservation">RESERVATION</a></li>
+  	  <li><a href="contact">CONTACT</a></li>
+    </ul>
+  </div>
+
+  <!-- ■main_box部分 -->
+  <div id="main_box">
+    <div class="cont_reserv">
+      <h2>予約日時やご希望をご入力ください</h2>
+      <form action="/reservation_confirm" method="post" th:object="${reservationForm}">
+        <ul>
+          <div class="form_top">
+            <div class="Desired_date">
+              <h3>Desired date and time</h3>
+              <li>
+                <label for="yyyy">year : </label>
+                <select th:field="*{yyear}" id="yyyy">
+  				  <option value="2021">2021</option>
+  				  <option value="2022">2022</option>
+  				  <option value="2023">2023</option>
+  				  <option value="2024">2024</option>
+  				  <option value="2025">2025</option>
+                </select>
+              </li>
+              <li class="deco">/</li>
+
+              <li>
+                <label for="mm">month : </label>
+                <select th:field="*{mmonth}" id="mm">
+            <option value="1">1</option>
+  				  <option value="2">2</option>
+  				  <option value="3">3</option>
+  				  <option value="4">4</option>
+  				  <option value="5">5</option>
+  				  <option value="6">6</option>
+  				  <option value="7">7</option>
+  				  <option value="8">8</option>
+  				  <option value="9">9</option>
+  				  <option value="10">10</option>
+  				  <option value="11">11</option>
+  				  <option value="12">12</option>
+                </select>
+              </li>
+              <li class="deco">/</li>
+              <li>
+                <label for="dday">day : </label>
+                <select th:field="*{dday}" id="dday">
+            <option value="1">1</option>
+  				  <option value="2">2</option>
+  				  <option value="3">3</option>
+  				  <option value="4">4</option>
+  				  <option value="5">5</option>
+  				  <option value="6">6</option>
+  				  <option value="7">7</option>
+  				  <option value="8">8</option>
+  				  <option value="9">9</option>
+  				  <option value="10">10</option>
+  				  <option value="11">11</option>
+  				  <option value="12">12</option>
+  				  <option value="13">13</option>
+  				  <option value="14">14</option>
+  				  <option value="15">15</option>
+  				  <option value="16">16</option>
+  				  <option value="17">17</option>
+  				  <option value="18">18</option>
+  				  <option value="19">19</option>
+  				  <option value="20">20</option>
+  				  <option value="21">21</option>
+  				  <option value="22">22</option>
+  				  <option value="23">23</option>
+  				  <option value="24">24</option>
+  				  <option value="25">25</option>
+  				  <option value="26">26</option>
+  				  <option value="27">27</option>
+  				  <option value="28">28</option>
+  				  <option value="29">29</option>
+  				  <option value="30">30</option>
+  				  <option value="31">31</option>
+                </select>
+              </li>
+            </div><br>
+
+            <div class="and_time">
+              <li>
+                <label for="hhour">hour : </label>
+                <select th:field="*{hhour}" id="hour">
+            <option value="10">10</option>
+  				  <option value="11">11</option>
+  				  <option value="12">12</option>
+  				  <option value="13">13</option>
+  				  <option value="14">14</option>
+  				  <option value="15">15</option>
+  				  <option value="16">16</option>
+  				  <option value="17">17</option>
+  				  <option value="18">18</option>
+                </select>
+              </li>
+              <li class="deco">:</li>
+
+              <li>
+                <label for="mminutes">minutes : </label>
+                <select th:field="*{mminutes}" id="mminutes" >
+            <option value="00">00</option>
+  				  <option value="15">15</option>
+  				  <option value="30">30</option>
+  				  <option value="45">45</option>
+                </select>
+              </li>
+
+              <div class="clear"></div>
+            </div>
+
+            <div class="profile">
+              <h3>Profile date and Other</h3>
+              <li>
+                <label for="name">Name:</label><br>
+                <input th:field="*{name}" type="text" id="name" class="w100x">
+                <span class="errmsg"></span><br>
+              </li>
+
+              <li>
+                <label for="gender">Gender:</label><br>
+                <input th:field="*{gender}" type="radio" value="1"><span class="mr30">Female</span>
+                <input th:field="*{gender}" type="radio" value="2"><span class="mr30">Male</span>
+                <input th:field="*{gender}" type="radio" value="3"><span class="mr30">Unanswered</span><br>
+                <span class="errmsg"></span><br>
+
+              </li>
+
+              <li>
+                <label for="tel">Tel:</label><br>
+                <input th:field="*{tel}" type="text" id="tel" class="w100x" >
+                <span class="errmsg"></span><br>
+
+              </li>
+            <li class="reserv_mse">
+              <label for="reserv_msg" class="form_mse_top">Message:</label><br>
+              <textarea th:field="*{message}" id="reserv_msg" rows="10" ></textarea><br>
+              <span class="errmsg"></span><br>
+
+            </li>
+          </div>
+
+          <div class="form_btm">
+            <li>
+              <a href="#">
+                <input class="btn_submit" value="上記の内容で送信する" type="submit">
+              </a>
+            </li>
+          </div>
+        </ul>
+      </form>
+    </div> <!-- cont_body -->
+
+  </div><!-- main_box -->
+    <div class="clear"></div>
+  </div><!-- main_contents -->
+
+<!-- footer部分-->
+<footer>
+  <div class="footmenu">
+    <ul>
+  	  <li><a href="/">Home</a></li>
+  	  <li>/</li>
+  	  <li><a href="concept">CONCEPT</a></li>
+  	  <li>/</li>
+  	  <li><a href="access">ACCESS</a></li>
+      <li>/</li>
+  	  <li><a href="reservation">RESERVATION</a></li>
+  	  <li>/</li>
+  	  <li><a href="contact">CONTACT</a></li>
+    </ul>
+  </div>
+
+  <p class="copy">
+  © 2021 Winschool. All Rights Reserved.
+  </p>
+
+</footer>
+<!-- ■編集部分ここまで▲ -->
+</div><!-- wrapper -->
+</body>
+</html>
